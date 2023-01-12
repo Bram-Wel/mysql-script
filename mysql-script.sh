@@ -68,8 +68,8 @@ select yn in "Yes" "No"; do
     No ) echo "mysql_secure_installation not run."; echo "Ensure to run it for production."; exit;;
   esac
 done
-read -rp "Enter root password: " pass
-mysql -u root -p"$pass" -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket"
-echo "You can now use; sudo mysql"
-echo "MAKE SURE TO THANK @BRAM FOR THIS LITTLE SCRIPT"
-echo "I DID N' WORK TOO HARD ON IT THO'. ;)"
+read -rp "Enter your root password: " pass
+mysql -u root -p"$pass" -e "INSTALL PLUGIN auth_socket SONAME 'auth_socket.so'; ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket"
+echo "You can now use; sudo mysql
+MAKE SURE TO THANK @BRAM FOR THIS LITTLE SCRIPT
+I DID N' WORK TOO HARD ON IT THO'. ;)"
